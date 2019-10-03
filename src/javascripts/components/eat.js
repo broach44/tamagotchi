@@ -41,8 +41,10 @@ const eatPrinter = () => {
   <div id='barWrapper'>
   <div id='myBar'>Fullness Score = 100</div>
   </div>
+  <div id='foodButtons'>
   <button id='apple' class='food'>Apple</button>
   <button id='cookie' class='food'>Cookie</button>
+  </div>
   `;
   utilities.printToDom('eat', domString);
   addAppleListener();

@@ -1,12 +1,12 @@
-#eat { 
-  background-color: teal;
+#play { 
+  background-color: rgb(107, 49, 76);
   text-align: center; 
 }
 
-#myBar {
+#playBar {
   width: 100%;
   height: 30px;
-  background-color: rgb(10, 175, 79);
+  background-color: rgb(238, 192, 92);
   text-align: center;
   line-height: 30px;
   color: white;
@@ -17,10 +17,10 @@
   margin: 10px auto 10px auto;
 }
 
-.food {
+.playButtons {
   border-radius: 5px;
-  background-color: cornflowerblue;
-  border: 2px solid rgb(44, 54, 97);
+  background-color: pink;
+  border: 2px solid rgb(53, 16, 36);
   box-shadow: 5px 5px 5px #313131;
   width: 100px;
   height: 25px;

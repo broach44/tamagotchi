@@ -1,0 +1,28 @@
+#sleep { 
+  background-color: lightslategray;
+  text-align: center; 
+}
+
+#sleepBar {
+  width: 100%;
+  height: 30px;
+  background-color: rgb(114, 53, 81);
+  text-align: center;
+  line-height: 30px;
+  color: white;
+}
+
+#barWrapper {
+  width: 50%;
+  margin: 10px auto 10px auto;
+}
+
+.sleepButtons {
+  border-radius: 5px;
+  background-color: rgb(219, 129, 77);
+  border: 2px solid rgb(215, 78, 97);
+  box-shadow: 5px 5px 5px #313131;
+  width: 100px;
+  height: 25px;
+  margin: 2px;
+}

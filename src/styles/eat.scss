@@ -1,0 +1,28 @@
+#eat { 
+  background-color: teal;
+  text-align: center; 
+}
+
+#myBar {
+  width: 100%;
+  height: 30px;
+  background-color: #4CAF50;
+  text-align: center; /* To center it horizontally (if you want) */
+  line-height: 30px; /* To center it vertically */
+  color: white;
+}
+
+#barWrapper {
+  width: 50%;
+  margin: 10px auto 10px auto;
+}
+
+.food {
+  border-radius: 5px;
+  background-color: cornflowerblue;
+  border: 2px solid rgb(44, 54, 97);
+  box-shadow: 5px 5px 5px #313131;
+  width: 100px;
+  height: 25px;
+  margin: 2px;
+}

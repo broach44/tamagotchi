@@ -1,5 +1,5 @@
-import '../../styles/play.scss';
-import utilities from '../helpers/utilities';
+import './play.scss';
+import utilities from '../../helpers/utilities';
 
 let score = 50;
 

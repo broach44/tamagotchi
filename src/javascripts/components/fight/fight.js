@@ -1,5 +1,5 @@
-import '../../styles/fight.scss';
-import utilities from '../helpers/utilities';
+import './fight.scss';
+import utilities from '../../helpers/utilities';
 
 let score = 100;
 

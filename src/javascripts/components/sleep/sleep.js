@@ -1,5 +1,5 @@
-import '../../styles/sleep.scss';
-import utilities from '../helpers/utilities';
+import './sleep.scss';
+import utilities from '../../helpers/utilities';
 
 let score = 50;
 

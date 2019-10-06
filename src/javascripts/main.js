@@ -15,6 +15,7 @@ const init = () => {
   sleep.sleepPrinter();
   sleep.sleepTimer();
   character.characterPrinter();
+  character.averageTimer();
 };
 
 init();

@@ -38,6 +38,16 @@ const averageScores = () => {
   const averageScore = totalScore / 4;
   const charProgressBar = document.getElementById('char-progress');
   charProgressBar.setAttribute('value', averageScore);
+  if (averageScore <= 0) {
+    const domString = `
+    <h1 id="deadDog">You killed Ghost!</h1>
+    <p id="skull"><p>
+    `;
+    utilities.printToDom('progress', domString);
+    const domString2 = `
+    `;
+    utilities.printToDom('pet', domString2);
+  }
 };
 
 const averageTimer = () => {

@@ -1,9 +1,11 @@
 import './eat.scss';
 import utilities from '../../helpers/utilities';
 
+let progressValue = 100;
+
 const deductFoodScore = () => {
   const progressBar = document.getElementById('myBar');
-  let progressValue = progressBar.value;
+  progressValue = progressBar.value;
   if (progressValue >= 5) {
     progressValue -= 5;
   } else {
@@ -20,7 +22,7 @@ const foodTimer = () => {
 
 const cookieEvent = () => {
   const progressBar = document.getElementById('myBar');
-  let progressValue = progressBar.value;
+  progressValue = progressBar.value;
   if (progressValue >= 3) {
     progressValue -= 3;
   } else {
@@ -37,7 +39,7 @@ const addCookieListener = () => {
 
 const appleEvent = () => {
   const progressBar = document.getElementById('myBar');
-  let progressValue = progressBar.value;
+  progressValue = progressBar.value;
   if (progressValue <= 90) {
     progressValue += 10;
   } else {
@@ -69,4 +71,6 @@ const eatPrinter = () => {
   addCookieListener();
 };
 
-export default { eatPrinter, foodTimer };
+const getEatScore = () => progressValue;
+
+export default { eatPrinter, foodTimer, getEatScore };

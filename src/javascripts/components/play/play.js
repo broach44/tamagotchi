@@ -1,9 +1,11 @@
 import './play.scss';
 import utilities from '../../helpers/utilities';
 
+let progressValue = 50;
+
 const deductJoyScore = () => {
   const progressBar = document.getElementById('playBar');
-  let progressValue = progressBar.value;
+  progressValue = progressBar.value;
   if (progressValue >= 5) {
     progressValue -= 5;
   } else {
@@ -18,9 +20,9 @@ const joyTimer = () => {
   setInterval(deductJoyScore, 10000);
 };
 
-const puzzleEvent = () => {
+const tugEvent = () => {
   const progressBar = document.getElementById('playBar');
-  let progressValue = progressBar.value;
+  progressValue = progressBar.value;
   if (progressValue <= 98) {
     progressValue += 2;
   } else {
@@ -31,13 +33,13 @@ const puzzleEvent = () => {
   utilities.printToDom('joy-score', domString);
 };
 
-const addPuzzleListener = () => {
-  document.getElementById('puzzle').addEventListener('click', puzzleEvent);
+const addTugListener = () => {
+  document.getElementById('tug').addEventListener('click', tugEvent);
 };
 
-const videoGameEvent = () => {
+const fetchGameEvent = () => {
   const progressBar = document.getElementById('playBar');
-  let progressValue = progressBar.value;
+  progressValue = progressBar.value;
   if (progressValue <= 50) {
     progressValue += 50;
   } else {
@@ -48,8 +50,8 @@ const videoGameEvent = () => {
   utilities.printToDom('joy-score', domString);
 };
 
-const addVideoGamesListener = () => {
-  document.getElementById('videoGames').addEventListener('click', videoGameEvent);
+const addFetchGameListener = () => {
+  document.getElementById('fetchGame').addEventListener('click', fetchGameEvent);
 };
 
 const playPrinter = () => {
@@ -60,13 +62,15 @@ const playPrinter = () => {
   <div id="joy-score">Joy = 50</div>
   </div>
   <div id="playButtons">
-  <button id='videoGames' class='playButtons'>Video Games</button>
-  <button id='puzzle' class='playButtons'>Puzzle</button>
+  <button id='fetchGame' class='playButtons'>Fetch</button>
+  <button id='tug' class='playButtons'>Tug</button>
   </div>
   `;
   utilities.printToDom('play', domString);
-  addVideoGamesListener();
-  addPuzzleListener();
+  addFetchGameListener();
+  addTugListener();
 };
 
-export default { playPrinter, joyTimer };
+const getPlayScore = () => progressValue;
+
+export default { playPrinter, joyTimer, getPlayScore };

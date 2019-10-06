@@ -1,9 +1,11 @@
 import './fight.scss';
 import utilities from '../../helpers/utilities';
 
+let progressValue = 100;
+
 const deductStrength = () => {
   const progressBar = document.getElementById('fightBar');
-  let progressValue = progressBar.value;
+  progressValue = progressBar.value;
   if (progressValue >= 5) {
     progressValue -= 5;
   } else {
@@ -20,7 +22,7 @@ const strengthTimer = () => {
 
 const runAwayEvent = () => {
   const progressBar = document.getElementById('fightBar');
-  let progressValue = progressBar.value;
+  progressValue = progressBar.value;
   if (progressValue <= 99) {
     progressValue += 1;
   }
@@ -35,7 +37,7 @@ const addRunAwayListener = () => {
 
 const fightEvent = () => {
   const progressBar = document.getElementById('fightBar');
-  let progressValue = progressBar.value;
+  progressValue = progressBar.value;
   if (progressValue >= 10) {
     progressValue -= 10;
   } else {
@@ -67,4 +69,6 @@ const fightPrinter = () => {
   addRunAwayListener();
 };
 
-export default { fightPrinter, strengthTimer };
+const getStrengthScore = () => progressValue;
+
+export default { fightPrinter, strengthTimer, getStrengthScore };

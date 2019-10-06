@@ -40,6 +40,8 @@ const averageScores = () => {
   charProgressBar.setAttribute('value', averageScore);
 };
 
-setInterval(averageScores, 100);
+const averageTimer = () => {
+  setInterval(averageScores, 100);
+};
 
-export default { characterPrinter };
+export default { characterPrinter, averageTimer };

@@ -1,9 +1,11 @@
 import './sleep.scss';
 import utilities from '../../helpers/utilities';
 
+let progressValue = 50;
+
 const deductSleepScore = () => {
   const progressBar = document.getElementById('sleepBar');
-  let progressValue = progressBar.value;
+  progressValue = progressBar.value;
   if (progressValue >= 5) {
     progressValue -= 5;
   } else {
@@ -20,7 +22,7 @@ const sleepTimer = () => {
 
 const napEvent = () => {
   const progressBar = document.getElementById('sleepBar');
-  let progressValue = progressBar.value;
+  progressValue = progressBar.value;
   if (progressValue <= 50) {
     progressValue += 50;
   } else {
@@ -37,7 +39,7 @@ const addNapListener = () => {
 
 const sleepEvent = () => {
   const progressBar = document.getElementById('sleepBar');
-  let progressValue = progressBar.value;
+  progressValue = progressBar.value;
   if (progressValue <= 40) {
     progressValue += 60;
   } else {
@@ -60,7 +62,7 @@ const sleepPrinter = () => {
   <div id="sleep-score">Energy = 50</div>
   </div>
   <div id="sleepButtons">
-  <button id='nap' class='sleepButtons'>Cat Nap</button>
+  <button id='nap' class='sleepButtons'>Puppy Nap</button>
   <button id='slumber' class='sleepButtons'>Slumber</button>
   </div>
   `;
@@ -69,4 +71,6 @@ const sleepPrinter = () => {
   addNapListener();
 };
 
-export default { sleepPrinter, sleepTimer };
+const getSleepScore = () => progressValue;
+
+export default { sleepPrinter, sleepTimer, getSleepScore };

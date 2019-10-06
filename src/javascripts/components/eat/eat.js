@@ -1,7 +1,7 @@
 import './eat.scss';
 import utilities from '../../helpers/utilities';
 
-const deductScore = () => {
+const deductFoodScore = () => {
   const progressBar = document.getElementById('myBar');
   let progressValue = progressBar.value;
   if (progressValue >= 5) {
@@ -15,7 +15,7 @@ const deductScore = () => {
 };
 
 const foodTimer = () => {
-  setInterval(deductScore, 500);
+  setInterval(deductFoodScore, 10000);
 };
 
 const cookieEvent = () => {

@@ -1,18 +1,34 @@
 import './sleep.scss';
 import utilities from '../../helpers/utilities';
 
-let score = 50;
+const deductSleepScore = () => {
+  const progressBar = document.getElementById('sleepBar');
+  let progressValue = progressBar.value;
+  if (progressValue >= 5) {
+    progressValue -= 5;
+  } else {
+    progressValue -= progressValue;
+  }
+  progressBar.setAttribute('value', progressValue);
+  const domString = `Energy = ${progressValue}`;
+  utilities.printToDom('sleep-score', domString);
+};
+
+const sleepTimer = () => {
+  setInterval(deductSleepScore, 10000);
+};
 
 const napEvent = () => {
-  if (score <= 50) {
-    score += 50;
+  const progressBar = document.getElementById('sleepBar');
+  let progressValue = progressBar.value;
+  if (progressValue <= 50) {
+    progressValue += 50;
   } else {
-    score += 100 - score;
+    progressValue += 100 - progressValue;
   }
-  const domString = `
-  <div id='sleepBar'>Energy Score = ${score}</div>
-  `;
-  utilities.printToDom('sleepBar', domString);
+  progressBar.setAttribute('value', progressValue);
+  const domString = `Energy = ${progressValue}`;
+  utilities.printToDom('sleep-score', domString);
 };
 
 const addNapListener = () => {
@@ -20,15 +36,16 @@ const addNapListener = () => {
 };
 
 const sleepEvent = () => {
-  if (score <= 40) {
-    score += 60;
+  const progressBar = document.getElementById('sleepBar');
+  let progressValue = progressBar.value;
+  if (progressValue <= 40) {
+    progressValue += 60;
   } else {
-    score += 100 - score;
+    progressValue += 100 - progressValue;
   }
-  const domString = `
-  <div id='sleepBar'>Energy Score = ${score}</div>
-  `;
-  utilities.printToDom('sleepBar', domString);
+  progressBar.setAttribute('value', progressValue);
+  const domString = `Energy = ${progressValue}`;
+  utilities.printToDom('sleep-score', domString);
 };
 
 const addSleepButtonListener = () => {
@@ -39,7 +56,8 @@ const sleepPrinter = () => {
   const domString = `
   <h1>Sleep</h1>
   <div id='barWrapper'>
-  <div id='sleepBar'>Energy Score = 50</div>
+  <progress id='sleepBar' min="0" max="100" value="50">Energy Score = 50</progress>
+  <div id="sleep-score">Energy = 50</div>
   </div>
   <div id="sleepButtons">
   <button id='nap' class='sleepButtons'>Cat Nap</button>
@@ -51,4 +69,4 @@ const sleepPrinter = () => {
   addNapListener();
 };
 
-export default { sleepPrinter };
+export default { sleepPrinter, sleepTimer };

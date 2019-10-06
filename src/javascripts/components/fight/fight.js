@@ -1,15 +1,31 @@
 import './fight.scss';
 import utilities from '../../helpers/utilities';
 
-let score = 100;
+const deductStrength = () => {
+  const progressBar = document.getElementById('fightBar');
+  let progressValue = progressBar.value;
+  if (progressValue >= 5) {
+    progressValue -= 5;
+  } else {
+    progressValue -= progressValue;
+  }
+  progressBar.setAttribute('value', progressValue);
+  const domString = `Strength = ${progressValue}`;
+  utilities.printToDom('strength-score', domString);
+};
+
+const strengthTimer = () => {
+  setInterval(deductStrength, 10000);
+};
 
 const runAwayEvent = () => {
-  if (score <= 99) {
-    score += 1;
+  const progressBar = document.getElementById('fightBar');
+  let progressValue = progressBar.value;
+  if (progressValue <= 99) {
+    progressValue += 1;
   }
-  const domString = `
-  <div id='fightBar'>Strength Score = ${score}</div>
-  `;
+  progressBar.setAttribute('value', progressValue);
+  const domString = `Strength = ${progressValue}`;
   utilities.printToDom('fightBar', domString);
 };
 
@@ -18,14 +34,15 @@ const addRunAwayListener = () => {
 };
 
 const fightEvent = () => {
-  if (score >= 10) {
-    score -= 10;
+  const progressBar = document.getElementById('fightBar');
+  let progressValue = progressBar.value;
+  if (progressValue >= 10) {
+    progressValue -= 10;
   } else {
-    score -= score;
+    progressValue -= progressValue;
   }
-  const domString = `
-  <div id='fightBar'>Strength Score = ${score}</div>
-  `;
+  progressBar.setAttribute('value', progressValue);
+  const domString = `Strength = ${progressValue}`;
   utilities.printToDom('fightBar', domString);
 };
 
@@ -37,7 +54,8 @@ const fightPrinter = () => {
   const domString = `
   <h1>Fight</h1>
   <div id='barWrapper'>
-  <div id='fightBar'>Strength Score = 100</div>
+  <progress id='fightBar' min="0" max="100" value="100">Strength Score = 100</progress>
+  <div id="strength-score">Strength = 100</div>
   </div>
   <div id="fightButtons">
   <button id='runAway' class='fightButtons'>Bravely Run</button>
@@ -49,4 +67,4 @@ const fightPrinter = () => {
   addRunAwayListener();
 };
 
-export default { fightPrinter };
+export default { fightPrinter, strengthTimer };

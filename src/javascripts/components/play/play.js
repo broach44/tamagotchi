@@ -1,18 +1,34 @@
 import './play.scss';
 import utilities from '../../helpers/utilities';
 
-let score = 50;
+const deductJoyScore = () => {
+  const progressBar = document.getElementById('playBar');
+  let progressValue = progressBar.value;
+  if (progressValue >= 5) {
+    progressValue -= 5;
+  } else {
+    progressValue -= progressValue;
+  }
+  progressBar.setAttribute('value', progressValue);
+  const domString = `Joy = ${progressValue}`;
+  utilities.printToDom('joy-score', domString);
+};
+
+const joyTimer = () => {
+  setInterval(deductJoyScore, 10000);
+};
 
 const puzzleEvent = () => {
-  if (score <= 98) {
-    score += 2;
+  const progressBar = document.getElementById('playBar');
+  let progressValue = progressBar.value;
+  if (progressValue <= 98) {
+    progressValue += 2;
   } else {
-    score = 100;
+    progressValue = 100;
   }
-  const domString = `
-  <div id='playBar'>Joy Score = ${score}</div>
-  `;
-  utilities.printToDom('playBar', domString);
+  progressBar.setAttribute('value', progressValue);
+  const domString = `Joy = ${progressValue}`;
+  utilities.printToDom('joy-score', domString);
 };
 
 const addPuzzleListener = () => {
@@ -20,15 +36,16 @@ const addPuzzleListener = () => {
 };
 
 const videoGameEvent = () => {
-  if (score <= 50) {
-    score += 50;
+  const progressBar = document.getElementById('playBar');
+  let progressValue = progressBar.value;
+  if (progressValue <= 50) {
+    progressValue += 50;
   } else {
-    score = score + 100 - score;
+    progressValue = progressValue + 100 - progressValue;
   }
-  const domString = `
-  <div id='playBar'>Joy Score = ${score}</div>
-  `;
-  utilities.printToDom('playBar', domString);
+  progressBar.setAttribute('value', progressValue);
+  const domString = `Joy = ${progressValue}`;
+  utilities.printToDom('joy-score', domString);
 };
 
 const addVideoGamesListener = () => {
@@ -39,7 +56,8 @@ const playPrinter = () => {
   const domString = `
   <h1>Play</h1>
   <div id='barWrapper'>
-  <div id='playBar'>Joy Score = 50</div>
+  <progress id='playBar'min="0" max="100" value="50">Joy = 50</progress>
+  <div id="joy-score">Joy = 50</div>
   </div>
   <div id="playButtons">
   <button id='videoGames' class='playButtons'>Video Games</button>
@@ -51,4 +69,4 @@ const playPrinter = () => {
   addPuzzleListener();
 };
 
-export default { playPrinter };
+export default { playPrinter, joyTimer };

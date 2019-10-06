@@ -8,8 +8,11 @@ const init = () => {
   eat.eatPrinter();
   eat.foodTimer();
   play.playPrinter();
+  play.joyTimer();
   fight.fightPrinter();
+  fight.strengthTimer();
   sleep.sleepPrinter();
+  sleep.sleepTimer();
 };
 
 init();

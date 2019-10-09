@@ -16,8 +16,14 @@ const deductSleepScore = () => {
   utilities.printToDom('sleep-score', domString);
 };
 
+const checkProgress = () => {
+  if (progressValue > 0) {
+    deductSleepScore();
+  }
+};
+
 const sleepTimer = () => {
-  setInterval(deductSleepScore, 10000);
+  setInterval(checkProgress, 10000);
 };
 
 const napEvent = () => {

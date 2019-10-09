@@ -16,8 +16,14 @@ const deductStrength = () => {
   utilities.printToDom('strength-score', domString);
 };
 
+const checkProgress = () => {
+  if (progressValue > 0) {
+    deductStrength();
+  }
+};
+
 const strengthTimer = () => {
-  setInterval(deductStrength, 10000);
+  setInterval(checkProgress, 10000);
 };
 
 const runAwayEvent = () => {
@@ -28,7 +34,7 @@ const runAwayEvent = () => {
   }
   progressBar.setAttribute('value', progressValue);
   const domString = `Strength = ${progressValue}`;
-  utilities.printToDom('fightBar', domString);
+  utilities.printToDom('strength-score', domString);
 };
 
 const addRunAwayListener = () => {
@@ -45,7 +51,7 @@ const fightEvent = () => {
   }
   progressBar.setAttribute('value', progressValue);
   const domString = `Strength = ${progressValue}`;
-  utilities.printToDom('fightBar', domString);
+  utilities.printToDom('strength-score', domString);
 };
 
 const addFightButtonListener = () => {

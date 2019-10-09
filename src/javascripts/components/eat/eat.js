@@ -8,7 +8,7 @@ const deductFoodScore = () => {
   progressValue = progressBar.value;
   if (progressValue >= 5) {
     progressValue -= 5;
-  } else {
+  } else if (progressValue < 5) {
     progressValue -= progressValue;
   }
   progressBar.setAttribute('value', progressValue);
@@ -16,8 +16,14 @@ const deductFoodScore = () => {
   utilities.printToDom('food-score', domString);
 };
 
+const checkProgress = () => {
+  if (progressValue > 0) {
+    deductFoodScore();
+  }
+};
+
 const foodTimer = () => {
-  setInterval(deductFoodScore, 10000);
+  setInterval(checkProgress, 10000);
 };
 
 const cookieEvent = () => {

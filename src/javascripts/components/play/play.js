@@ -16,8 +16,14 @@ const deductJoyScore = () => {
   utilities.printToDom('joy-score', domString);
 };
 
+const checkProgress = () => {
+  if (progressValue > 0) {
+    deductJoyScore();
+  }
+};
+
 const joyTimer = () => {
-  setInterval(deductJoyScore, 10000);
+  setInterval(checkProgress, 10000);
 };
 
 const tugEvent = () => {

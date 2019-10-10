@@ -14,9 +14,9 @@ The pet also features a progress bar that automatically averages the scores from
 
 ## Screenshots
 #### Main View:
-
+![Main-View](https://raw.githubusercontent.com/broach44/tamagotchi/master/screenshots/main-view.png)
 #### View when Pet Dies:
-
+![Dead-Pet-View](https://raw.githubusercontent.com/broach44/tamagotchi/master/screenshots/dead-pet-view.png)
 
 ## How to Run
 - Clone down this project

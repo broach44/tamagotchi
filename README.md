@@ -18,6 +18,10 @@ The pet also features a progress bar that automatically averages the scores from
 #### View when Pet Dies:
 ![Dead-Pet-View](https://raw.githubusercontent.com/broach44/tamagotchi/master/screenshots/dead-pet-view.png)
 
+## Application Link
+
+Click [here](https://tamagotchi-724e6.firebaseapp.com) to use the application
+
 ## How to Run
 - Clone down this project
 - Install http-server from npm [here](https://www.npmjs.com/package/http-server)
